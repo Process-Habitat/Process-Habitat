@@ -1,53 +1,185 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Process Habitat — Construire mieux pour tous</title>
+  <meta name="description" content="Process Habitat - Constructeur de logements pour bailleurs sociaux. Construire mieux pour tous." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-<html>
+  <style>
+    :root{
+      --blue-strong: #0b4f7a; /* couleur d'entreprise, modifier si besoin */
+      --blue-soft: #e8f4fb;
+      --accent: #0b77b3;
+      --max-width: 1000px;
+      --radius: 12px;
+      --gutter: 20px;
+      --text: #222;
+    }
 
-	<head>
-		<meta charset="utf-8">
-		<script src="https://kit.fontawesome.com/c117e1eb12.js" crossorigin="anonymous"></script>
-		<link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900" rel="stylesheet">
-		<meta name="description" content="Welcome to Henri's profile">
-		<title>Henri Siebenaler's profile</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	
-	<body>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Arial;
+      color:var(--text);
+      background: #f7f9fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
 
-		<div class="container">
-			<div class="card-white">
-				<h1>Hello, I'm Henri 😄</h1>
-				<img src="images/profile.png" class="img-circle">	
-				<p>I like sports especially tennis, fitness and running. I'm a car lover. I study at IESEG in Lille.
-				</p>
-				<a href="https://www.linkedin.com/in/henrisiebenaler/" class="btn-blue" target="_blank">Discover my Linkedin Page</a>
-			</div>
-			<div class="card-white">
-				<h2>I love Tennis 🎾</h2>
-				<p>I practise tennis and I'm a big fan of Roger Federer</p>
-			</div>
-			<div class="card-white">
-				<h2>Sports 🏃🏽</h2>
-				<p>I love sports in general. I often go to the gym and I like running. I ran 13 km at the teamrun marathon in Luxembourg.</p>
-			</div>
-			<div class="card-white">
-				<h2>Car lover 🏎💨  </h2>
-				<p>I'm interested in cars, I know a lot about them. I like making photos of them.</p>
-			</div>
-			<div class="card-white">
-				<h2>Follow me ⬇️ </h2>
-				<ul class="list-inline">
-					<li>
-						<a href="https://www.linkedin.com/in/henrisiebenaler/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com/henrisbn/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-					</li>
-					<li>
-						<a href="https://twitter.com/henri_sbn" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-					</li>
-				</ul>
-			</div>
-		</div>
+    .wrap{max-width:var(--max-width);margin:36px auto;padding:0 18px}
 
-	</body>
+    header.site-header{display:flex;align-items:center;gap:18px;background:linear-gradient(90deg,var(--blue-soft),transparent);padding:18px;border-radius:var(--radius)}
+    .logo{width:96px;height:auto;flex:0 0 96px;background:transparent;border-radius:8px}
+    .site-title{margin:0}
+    .site-title h1{font-family:Lora, serif;margin:0;font-size:28px;color:var(--blue-strong)}
+    .site-title p{margin:4px 0 0;color:#3a4b57;font-weight:500}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;margin-top:22px}
+    .hero-card{background:white;padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(18,40,67,0.06)}
+    .hero-card h2{margin:0 0 8px;font-family:Lora, serif;color:var(--blue-strong)}
+    .hero-card p{margin:0;color:#4a5863}
+
+    /* Quick facts */
+    .quick{display:flex;gap:12px;margin-top:14px}
+    .kpi{flex:1;background:linear-gradient(180deg,#fff, #fbfdff);padding:12px;border-radius:10px;border:1px solid rgba(11,79,122,0.06);text-align:center}
+    .kpi strong{display:block;font-size:20px;color:var(--blue-strong)}
+    .kpi small{display:block;color:#6b7b83}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .photo{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:10px;overflow:hidden;height:160px;display:flex;align-items:center;justify-content:center}
+    .photo img{width:100%;height:100%;object-fit:cover}
+
+    /* About */
+    .about{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+    .about .card{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(18,40,67,0.05)}
+
+    /* Social */
+    .social{display:flex;gap:14px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid transparent}
+    .btn--ig{background:linear-gradient(90deg,#fff,#fff);color:var(--blue-strong);border-color:rgba(11,79,122,0.08)}
+    .btn--li{background:var(--blue-strong);color:white}
+
+    footer{margin-top:26px;text-align:center;color:#6b7b83;font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .gallery{grid-template-columns:1fr}
+      header.site-header{flex-direction:row;align-items:center}
+      .logo{width:72px}
+      .site-title h1{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="site-header">
+      <!-- Replace logo.png with your real logo file (same filename) -->
+      <img src="logo.png" alt="Process Habitat logo" class="logo">
+
+      <div class="site-title">
+        <h1>Process Habitat</h1>
+        <p>Construire mieux pour tous — Constructeur de logements pour bailleurs sociaux</p>
+      </div>
+    </header>
+
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Notre mission</h2>
+        <p>
+          Process Habitat conçoit et construit des logements durables et accessibles pour les bailleurs sociaux.
+          Nous mettons l'accent sur la qualité de construction, le respect des délais et un accompagnement engagé tout au long du projet.
+        </p>
+
+        <div class="quick" aria-hidden>
+          <div class="kpi">
+            <strong>+200</strong>
+            <small>Logements livrés</small>
+          </div>
+          <div class="kpi">
+            <strong>10+</strong>
+            <small>Années d'expérience</small>
+          </div>
+          <div class="kpi">
+            <strong>100%</strong>
+            <small>Engagement qualité</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social card -->
+      <div class="hero-card">
+        <h2>Suivez-nous</h2>
+        <p>Retrouvez nos chantiers, avancements et actualités :</p>
+
+        <div class="social">
+          <!-- Instagram button : link provided by user -->
+          <a class="btn btn--ig" href="https://www.instagram.com/process_habitat?igsh=MTRjeXBubWphZ3U0&utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <!-- Simple Instagram SVG icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+            </svg>
+            Instagram
+          </a>
+
+          <!-- LinkedIn button : link provided by user -->
+          <a class="btn btn--li" href="https://www.linkedin.com/company/process-habitat/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="2" fill="white" />
+              <path d="M7 10.5v7" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M7 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="white" />
+              <path d="M11 14.5v3M11 10.5v.1" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="about">
+      <div class="card">
+        <h3>Quelques réalisations (exemples)</h3>
+        <p>Ci-dessous des photos illustratives de nos chantiers. Remplacez les images temporaires par vos photos réelles (instructions en bas).</p>
+
+        <div class="gallery" role="list">
+          <!-- Replace photo1.jpg, photo2.jpg, photo3.jpg with your images -->
+          <div class="photo" role="listitem"><img src="photo1.jpg" alt="Projet - Vue 1"></div>
+          <div class="photo" role="listitem"><img src="photo2.jpg" alt="Projet - Vue 2"></div>
+          <div class="photo" role="listitem"><img src="photo3.jpg" alt="Projet - Vue 3"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Notre approche</h3>
+        <p>
+          Nous travaillons en étroite collaboration avec les bailleurs sociaux pour concevoir des logements fonctionnels, économes en énergie et durables.
+          De la phase d'étude à la livraison, nous priorisons l'exigence technique et la transparence.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year">2025</span> Process Habitat — Construire mieux pour tous</p>
+    </footer>
+  </div>
+
+  <script>
+    // Mise à jour automatique de l'année
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
